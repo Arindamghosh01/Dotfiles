@@ -1,0 +1,204 @@
+#Alacritty:
+
+env:
+  # TERM: alacritty
+  TERM: xterm-256color
+
+window:
+  padding:
+    x: 6
+    y: 6
+
+    dynamic_padding: false
+    #decoration: none
+
+font:
+  normal:
+    family: monospace
+
+  bold:
+    family: Source Code Pro
+
+  italic:
+    family: Source Code Pro
+
+  bold_italic:
+    family: Source Code Pro
+
+  size: 8
+
+
+scrolling:
+  # Maximum number of lines in the scrollback buffer.
+  # Specifying '0' will disable scrolling.
+  history: 5000
+
+
+
+  # Default colour
+  #colors:
+  #  # Default colors
+  #  primary:
+  #    background: '0x181a20'
+  #    foreground: '0xeeffff'
+  #
+  #  # Colors the cursor will use if `custom_cursor_colors` is true
+  #  cursor:
+  #    text: '0x212121'
+  #    cursor: '0xeeffff'
+  #
+  #  Normal colors
+  #  normal:
+  #    black:   '0x212121'
+  #    red:     '0xf07178'
+  #    green:   '0xc3e88d'
+  #    yellow:  '0xffcb6b'
+  #    blue:    '0x82aaff'
+  #    magenta: '0xc792ea'
+  #    cyan:    '0x89ddff'
+  #    white:   '0xeeffff'
+  #
+  #  Bright colors
+  #  bright:
+  #    black:   '0x4a4a4a'
+  #    red:     '0xf07178'
+  #    green:   '0xc3e88d'
+  #    yellow:  '0xffcb6b'
+  #    blue:    '0x82aaff'
+  #    magenta: '0xc792ea'
+  #    cyan:    '0x89ddff'
+  #    white:   '0xffffff'
+  #
+  #  indexed_colors:
+  #    - { index: 16, color: '0xf78c6c' }
+  #    - { index: 17, color: '0xff5370' }
+  #    - { index: 18, color: '0x303030' }
+  #    - { index: 19, color: '0x353535' }
+  #    - { index: 20, color: '0xb2ccd6' }
+  #    - { index: 21, color: '0xeeffff' }
+
+# Arcolinux termite colors
+colors:
+  primary:
+    background: '0x181a20'
+    foreground: '0xeeffff'
+
+  cursor:
+    text: '0x212121'
+    cursor: '0xeeffff'
+
+  normal:
+    black:   '0x000000'
+    red:     '0xff5555'
+    green:   '0x50fa7b'
+    yellow:  '0xf1fa8c'
+    blue:    '0x6790EB'
+    magenta: '0xff79c6'
+    cyan:    '0x8be9fd'
+    white:   '0xbfbfbf'
+
+  bright:
+    black:   '0x79A9FF'
+    red:     '0xff6e67'
+    green:   '0x5af78e'
+    yellow:  '0xf4f99d'
+    blue:    '0x79A9FF'
+    magenta: '0xff92d0'
+    cyan:    '0x9aedfe'
+    white:   '0xe6e6e6'
+
+  indexed_colors:
+    - { index: 16, color: '0xf78c6c' }
+    - { index: 17, color: '0xff5370' }
+    - { index: 18, color: '0x303030' }
+    - { index: 19, color: '0x353535' }
+    - { index: 20, color: '0xb2ccd6' }
+    - { index: 21, color: '0xeeffff' }
+
+
+
+
+# Colors (Tomorrow Night Bright)
+#colors:
+#  # Default colors
+#  primary:
+#    background: '0x282c34'
+#    foreground: '0xbbc2cf'
+#
+#    # Bright and dim foreground colors
+#    #
+#    # The dimmed foreground color is calculated automatically if it is not present.
+#    # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
+#    # is `false`, the normal foreground color will be used.
+#    #dim_foreground: '0x9a9a9a'
+#    #bright_foreground: '0xffffff'
+#
+#  # Cursor colors
+#  #
+#  # Colors which should be used to draw the terminal cursor. If these are unset,
+#  # the cursor color will be the inverse of the cell color.
+#  #cursor:
+#  #  text: '0x000000'
+#  #  cursor: '0xffffff'
+#
+#  # Selection colors
+#  #
+#  # Colors which should be used to draw the selection area. If selection
+#  # background is unset, selection color will be the inverse of the cell colors.
+#  # If only text is unset the cell text color will remain the same.
+#  selection:
+#    text: '0xbbc2cf'
+#
+#  # Normal colors
+#  normal:
+#    black:   '0x1c1f24'
+#    red:     '0xff6c6b'
+#    green:   '0x98be65'
+#    yellow:  '0xda8548'
+#    blue:    '0x51afef'
+#    magenta: '0xc678dd'
+#    cyan:    '0x5699af'
+#    white:   '0x202328'
+#
+#  # Bright colors
+#  bright:
+#    black:   '0x5b6268'
+#    red:     '0xda8548'
+#    green:   '0x4db5bd'
+#    yellow:  '0xecbe7b'
+#    blue:    '0x3071db'   # This is 2257a0 in Doom Emacs but I lightened it.
+#    magenta: '0xa9a1e1'
+#    cyan:    '0x46d9ff'
+#    white:   '0xdfdfdf'
+
+
+
+background_opacity: 0.80
+
+# cursor:
+#   style: Underline
+
+#   unfocused_hollow: false
+
+live_config_reload: true
+
+key_bindings:
+
+  - { key: V,         mods: Control|Shift, action: Paste                       }
+  - { key: C,         mods: Control|Shift, action: Copy                        }
+  - { key: Insert,    mods: Shift,         action: PasteSelection              }
+  - { key: Key0,      mods: Control,       action: ResetFontSize               }
+  - { key: Equals,    mods: Control,       action: IncreaseFontSize            }
+  - { key: Plus,      mods: Control,       action: IncreaseFontSize            }
+  - { key: Minus,     mods: Control,       action: DecreaseFontSize            }
+  - { key: Minus,     mods: Control,       action: DecreaseFontSize            }
+  - { key: F11,       mods: None,          action: ToggleFullscreen            }
+  - { key: Paste,     mods: None,          action: Paste                       }
+  - { key: Copy,      mods: None,          action: Copy                        }
+  - { key: L,         mods: Control,       action: ClearLogNotice              }
+  - { key: L,         mods: Control,       chars: "\x0c"                       }
+  - { key: PageUp,    mods: None,          action: ScrollPageUp,   mode: ~Alt  }
+  - { key: PageDown,  mods: None,          action: ScrollPageDown, mode: ~Alt  }
+  - { key: Home,      mods: Shift,         action: ScrollToTop,    mode: ~Alt  }
+  - { key: End,       mods: Shift,         action: ScrollToBottom, mode: ~Alt  }
+

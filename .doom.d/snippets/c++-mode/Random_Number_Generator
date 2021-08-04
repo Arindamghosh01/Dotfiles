@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: Random Number Generator
+# key: rng
+# --
+std::mt19937 rng(std::chrono::steady_clock::now().time_since_epoch().count());
+std::mt19937_64 rng64(std::chrono::steady_clock::now().time_since_epoch().count());
+
+template<class T> inline T rand(T l,T r){return std::uniform_int_distribution<T>(l,r)(rng);}
+template<class T> inline T rand64(T l,T r){return std::uniform_int_distribution<T>(l,r)(rng);}

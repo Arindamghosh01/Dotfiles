@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: vector<pair<int, int>>
+# key: vii
+# --
+vector<pair<int, int>> $0;
