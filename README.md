@@ -1,2 +1,2 @@
 # Dotfiles
-Just all my dotfiles.
+Just all my dotfiles. I use Arch Btw 😃.
