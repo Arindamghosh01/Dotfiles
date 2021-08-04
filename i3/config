@@ -33,7 +33,7 @@
 
 #set Super key
 set $mod Mod4
-
+#border_radius 4
 
 
 #####################################################################################################################
@@ -135,11 +135,10 @@ bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 #####################################################################################################################
 
 # start dmenu
-bindsym $mod+shift+d exec --no-startup-id dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
-
+bindsym $mod+shift+Return exec --no-startup-id dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -h 25 -fn 'NotoMonoRegular:bold:pixelsize=14'
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+Ctrl+Return exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'" 
 
 # gmrun
 bindsym mod1+F2 exec --no-startup-id gmrun
@@ -151,10 +150,12 @@ bindsym mod1+F3 exec --no-startup-id xfce4-appfinder
 #bindsym mod1+F5 exec --no-startup-id xlunch --config ~/.config/xlunch/default.conf --input ~/.config/xlunch/entries.dsv
 
 # start rofi full
-bindsym $mod+F11 exec --no-startup-id rofi -show run -fullscreen -font "Noto Sans 13"
+# bindsym $mod+F11 exec --no-startup-id rofi -show run -fullscreen -font "Noto Sans 13"
+bindsym $mod+F11 exec --no-startup-id rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/polybar/colorblocks/scripts/rofi/launcher.rasi
 
 # start rofi small
-bindsym $mod+F12 exec --no-startup-id rofi -show run -font "Noto Sans 13"
+#bindsym $mod+F12 exec --no-startup-id rofi -show run -font "Noto Sans 13"
+bindsym $mod+F12 exec --no-startup-id rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/polybar/colorblocks/scripts/rofi/launcher.rasi
 
 
 
@@ -211,10 +212,7 @@ bindsym $mod+q kill
 
 
 #####################################################################################################################
-#################                          Moving around in i3                                      #################
-#####################################################################################################################
-
-
+#################                          Moving around in i3                                      ################# #################################################################################################################### 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -283,7 +281,6 @@ bindsym $mod+b split h
 # split in vertical orientation
 bindsym $mod+v split v
 
-# enter fullscreen mode for the focused container
 # Super + F in arcolinux is execute thunar
 bindsym $mod+f fullscreen toggle
 
@@ -481,13 +478,17 @@ exec --no-startup-id variety
 # exec --no-startup-id conky -c ~/.config/i3/system-overview
 
 #feh sets wallpaper
-exec --no-startup-id feh --bg-fill /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg &
+#exec --no-startup-id feh --bg-fill /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg &
 
 # Start clipster daemon
-exec --no-startup-id clipster -d
+exec --no-startup-id clipster -d &
 
 #Polybar
-exec_always --no-startup-id ~/.config/polybar/launch.sh &
+exec_always --no-startup-id ~/.config/polybar/launch.sh --cuts &
+
+#Redshift
+# exec_always --no-startup-id redshift -c ~/.config/redshift/redshift.conf & 
+
 
 #####################################################################################################################
 #################                                 system applications                               #################
@@ -517,15 +518,26 @@ bindsym control+mod1+Next exec --no-startup-id conky-rotate -n
 bindsym control+mod1+Prior exec --no-startup-id conky-rotate -p
 
 # shortcut to selection widget (primary)
-bindsym $mod+c exec clipster -sp
+#bindsym $mod+c exec clipster -sp
+bindsym $mod+c exec roficlip
+
+# Emoji Support
+bindsym $mod+d exec rofimoji
 
 # terminal
-bindsym $mod+Return exec --no-startup-id termite;focus
+# bindsym $mod+Return exec --no-startup-id termite;focus
+bindsym $mod+Return exec --no-startup-id alacritty;focus
 bindsym $mod+KP_Enter exec --no-startup-id termite;focus
-bindsym control+mod1+t exec --no-startup-id termite; focus
+#bindsym control+mod1+t exec --no-startup-id termite; focus
 bindsym control+mod1+Return exec --no-startup-id termite; focus
 bindsym control+mod1+KP_Enter exec --no-startup-id termite; focus
 bindsym F12 exec --no-startup-id xfce4-terminal --drop-down; focus
+
+
+# Floating Terminal
+# bindsym $mod+shift+t exec --no-startup-id urxvt -geometry 80x26 -name "floating_urxvt" for_window [class="URxvt" instance="floating_urxvt$"] floating toggle
+# bindsym control+mod1+t exec --no-startup-id alacritty --class floating_term
+# for_window [class="floating_term"] floating enable
 
 #System monitor
 bindsym control+Shift+Escape exec --no-startup-id xfce4-taskmanager;focus
@@ -572,10 +584,9 @@ bindsym $mod+F1 exec --no-startup-id firefox;focus
 bindsym $mod+w exec --no-startup-id exo-open --launch webbrowser;focus
 # bindsym $mod+f exec --no-startup-id firefox;focus
 # bindsym control+mod1+v exec --no-startup-id vivaldi-stable;focus
-bindsym $mod+g exec --no-startup-id chromium;focus
 
 #workspace 2 related
-bindsym mod1+e exec --no-startup-id code;focus
+bindsym mod1+e exec --no-startup-id emacs;focus
 bindsym $mod+F2 exec --no-startup-id brave;focus
 bindsym $mod+F3 exec --no-startup-id chromium;focus
 bindsym $mod+F4 exec --no-startup-id qutebrowser;focus
@@ -599,7 +610,7 @@ bindsym $mod+F4 exec --no-startup-id qutebrowser;focus
 #workspace 8 related
 # for_window [class="Thunar"] focus
 # bindsym $mod+F8 exec --no-startup-id thunar;focus
-bindsym $mod+Shift+Return exec --no-startup-id thunar;focus
+bindsym $mod+Shift+d exec --no-startup-id thunar;focus
 # bindsym $mod+Shift+KP_Enter exec --no-startup-id thunar;focus
 # bindsym control+mod1+b exec --no-startup-id thunar;focus
 
@@ -612,7 +623,6 @@ bindsym $mod+F9 exec --no-startup-id keepassxc;focus
 #workspace 10 related
 bindsym $mod+F10 exec --no-startup-id gtk-launch spotify-adblock.desktop;focus
 bindsym control+mod1+s exec --no-startup-id spotify;focus
-
 
 
 
@@ -638,7 +648,7 @@ bindsym Control+Print exec --no-startup-id xfce4-screenshooter
 #floating enabled from some programs - find with xprop
 
 for_window [class="Arcolinux-welcome-app.py"] floating enable
-#for_window [class="Arcolinux-tweak-tool.py"] floating enable
+for_window [class="Arcolinux-tweak-tool.py"] floating enable
 for_window [class="Arcolinux-calamares-tool.py"] floating enable
 for_window [class="Bleachbit"] floating disable
 for_window [class="Blueberry.py"] floating enable
@@ -663,8 +673,10 @@ for_window [class="^Vlc$"] floating disable
 for_window [class="Wine"] floating disable
 for_window [class="Xfburn"] floating disable
 for_window [class="Xfce4-appfinder"] floating enable
+for_window [class="Xfrun4"] floating enable
 for_window [class="Xfce4-settings-manager"] floating disable
 for_window [class="Xfce4-taskmanager"] floating enable
+for_window [class="jome"] floating enable
 
 
 #for_window [instance="gimp"] floating disable
@@ -764,6 +776,15 @@ bindsym XF86AudioStop exec --no-startup-id playerctl stop
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease screen brightness
 
+
+#####################################################################################################################
+#################                          spotify                                                  #################
+#####################################################################################################################
+
+# Next and Previous song
+bindsym $mod+comma exec --no-startup-id playerctl --player=spotify previous
+bindsym $mod+period exec --no-startup-id playerctl --player=spotify next
+bindsym $mod+p exec --no-startup-id playerctl --player=spotify play-pause
 
 
 #####################################################################################################################
