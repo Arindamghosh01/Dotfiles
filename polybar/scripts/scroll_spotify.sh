@@ -6,7 +6,7 @@
 zscroll -l 40 \
         --delay 0.1 \
         --scroll-padding "  " \
-        --match-command "$HOME/.config/polybar/cuts/scripts/spotify1.sh" \
-        --update-check true "$HOME/.config/polybar/cuts/scripts/spotify1.sh" &
+        --match-command "$HOME/.config/polybar/scripts/spotify1.sh" \
+        --update-check true "$HOME/.config/polybar/scripts/spotify1.sh" &
 
 wait
